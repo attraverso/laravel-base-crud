@@ -11,8 +11,17 @@ class StudentsSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        //
+      $a = 0;
+      while ($a < 10) {
+        $newStudent = new Student();
+        $newStudent->first_name = $faker->firstName();
+        $newStudent->last_name = $faker->lastName();
+        $newStudent->student_id_nr = $faker->bothify('????######');
+        $newStudent->email = $faker->safeEmail;
+        $newStudent->save();
+        $a++;
+      }
     }
 }
