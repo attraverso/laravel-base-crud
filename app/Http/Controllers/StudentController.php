@@ -12,10 +12,9 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $students = Student::all();
-        return view('students.index', compact('students'));
+    public function index() {
+      $students = Student::all();
+      return view('students.index', compact('students'));
     }
 
     /**
@@ -45,9 +44,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id) {
+      $currentStudent = Student::find($id);
+      return view('students.show', compact('currentStudent'));
     }
 
     /**
@@ -56,8 +55,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 

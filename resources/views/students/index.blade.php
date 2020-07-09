@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('page-title', 'students')
+@section('page-title', 'Manage students')
 
 @section('content')
 <div class="container mt-3">
-  <h1>Elenco studenti</h1>
+  <h1>Manage students</h1>
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>

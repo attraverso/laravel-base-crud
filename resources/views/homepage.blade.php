@@ -4,6 +4,6 @@
 
 @section('content')
     <div>
-      <p>hola</p>
+      <p>hola!</p>
     </div>
 @endsection
