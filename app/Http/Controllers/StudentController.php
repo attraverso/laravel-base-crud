@@ -22,9 +22,8 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+      return view('students.create');
     }
 
     /**
@@ -33,9 +32,12 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+      $newData = $request->all();
+      $newStudent = new Student();
+      $newStudent->fill($newData);
+      $newStudent->save();
+      return redirect()->route('students.show', ['student' => $newStudent->id]);
     }
 
     /**

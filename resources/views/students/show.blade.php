@@ -4,7 +4,10 @@
 
 @section('content')
 <div class="container mt-3">
-  <h1>You are <span class="text-info">viewing</span> student {{$currentStudent->student_id_nr}} 's data</h1>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>You are <span class="text-info">viewing</span> student {{$currentStudent->student_id_nr}} 's data</h1>
+    <a class="btn btn-secondary" href="{{route('students.index')}}">Back to list</a>
+  </div>
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>

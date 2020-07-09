@@ -4,7 +4,10 @@
 
 @section('content')
 <div class="container mt-3">
-  <h1>Manage students</h1>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Manage students</h1>
+    <a class="btn btn-primary" href="{{route('students.create')}}">Add Student</a>
+  </div>
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
