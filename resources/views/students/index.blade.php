@@ -23,7 +23,11 @@
             <th>{{$student->student_id_nr}}</th>
             <th>{{$student->first_name}}</th>
             <th>{{$student->last_name}}</th>
-            <th><a class="btn btn-info" href="{{route('students.show', ['student' => $student->id])}}">Details</a></th>
+            <th>
+              <a class="btn btn-info" href="{{route('students.show', ['student' => $student->id])}}">Details</a>
+              <a class="btn btn-warning" href="{{route('students.edit', ['student' => $student->id])}}">Edit</a>
+              <a class="btn btn-danger" href="{{route('students.deletepreview', ['student' => $student->id])}}">Delete</a>
+            </th>
           </tr>
       @empty
           {{ 'There are no results' }}

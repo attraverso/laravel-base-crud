@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route:: method ( 'view url', function() {return view('view name')})
 Route::get('/', function () {
-    return view('homepage');
+  return view('homepage');
 })->name('home');
 
-
+// ::resource builds all the CRUD routes all by itself
+//Route::resource('url', 'Controller that manages these routes') -> the controller manages all the routes with that url
 Route::resource('students', 'StudentController');
+Route::get('students/{student}/delete', 'StudentController@deletepreview')->name('students.deletepreview');
