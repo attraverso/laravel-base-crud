@@ -8,6 +8,9 @@
       <h1>Add student</h1>
       <a class="btn btn-secondary" href="{{route('students.index')}}">Back to list</a>
     </div>
+    <div class="js-errorbox alert alert-danger">
+      
+    </div>
     @if ($errors->any())
       <div class="alert alert-danger">
         <ul>
@@ -21,21 +24,21 @@
       @csrf
       <div class="form-group">
         <label for="firstname-input">First name</label>
-        <input type="text" class="form-control" id="firstname-input" name="first_name" value="{{old('first_name')}}" required>
+        <input type="text" class="form-control" id="firstname-input" name="first_name" value="{{old('first_name')}}" {{-- required --}}>
         @error('first_name')
           <div class="text-danger">{{ $message }}</div>
         @enderror
       </div>
       <div class="form-group">
         <label for="lastname-input">Last name</label>
-        <input type="text" class="form-control" id="lastname-input" name="last_name" value="{{old('last_name')}}" required>
+        <input type="text" class="form-control" id="lastname-input" name="last_name" value="{{old('last_name')}}" {{-- required --}}>
         @error('last_name')
           <div class="text-danger">{{ $message }}</div>
         @enderror
       </div>
       <div class="form-group">
         <label for="student-id-input">Student ID #</label>
-        <input type="text" class="form-control" id="student-id-input" name="student_id_nr" value="{{old('student_id_nr')}}" required>
+        <input type="text" class="form-control" id="student-id-input" name="student_id_nr" value="{{old('student_id_nr')}}" {{-- required --}}>
         @error('student_id_nr')
           <div class="text-danger">{{ $message }}</div>
         @enderror
@@ -47,7 +50,7 @@
           <div class="text-danger">{{ $message }}</div>
         @enderror
       </div>
-      <button type="submit" class="btn btn-primary">Crea</button>
+      <button type="submit" class="data-submit btn btn-primary">Crea</button>
     </form>
   </div>
 @endsection

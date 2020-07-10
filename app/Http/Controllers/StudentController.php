@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Student;
 
 class StudentController extends Controller
@@ -36,10 +37,10 @@ class StudentController extends Controller
      */
     public function store(Request $request) {
       $request->validate([
-        'first_name' => 'required',
-        'last_name' => 'required',
-        'student_id_nr' => 'required',
-        'email' => 'email'
+        'first_name' => 'required|max:50',
+        'last_name' => 'required|max:50',
+        'student_id_nr' => 'required|max:10|unique:students,student_id_nr',
+        'email' => 'email|nullable|max:255|unique:students,email'
       ]);
       // get the data the user sent
       $newData = $request->all();
@@ -89,10 +90,10 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student) {
       $request->validate([
-        'first_name' => 'required',
-        'last_name' => 'required',
-        'student_id_nr' => 'required',
-        'email' => 'email'
+        'first_name' => 'required|max:50',
+        'last_name' => 'required|max:50',
+        'student_id_nr' => 'required|max:10|unique:students,student_id_nr,'.$student->id,
+        'email' => 'email|nullable|max:255|unique:students,email,'.$student->email
       ]);
       $edited = $request->all();
       $student->update($edited);

@@ -10928,3 +10928,11 @@ a.text-dark:focus {
   }
 }
 
+.js-errorbox {
+  display: none;
+}
+
+.js-errorbox.active {
+  display: block;
+}
+

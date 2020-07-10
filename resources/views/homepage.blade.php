@@ -3,7 +3,7 @@
 @section('page-title', 'Home')
 
 @section('content')
-    <div>
+    <div class="container">
       <p>hola!</p>
     </div>
 @endsection
