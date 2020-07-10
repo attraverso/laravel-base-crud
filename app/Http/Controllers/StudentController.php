@@ -35,6 +35,12 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+      $request->validate([
+        'first_name' => 'required',
+        'last_name' => 'required',
+        'student_id_nr' => 'required',
+        'email' => 'email'
+      ]);
       // get the data the user sent
       $newData = $request->all();
       //create new instance of the Student class
@@ -54,11 +60,11 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-      $currentStudent = Student::find($id);
-      return view('students.show', compact('currentStudent'));
+      $student = Student::find($id);
+      return view('students.show', compact('student'));
     }
 
-    // the code below does the same thing as the function above (dependency injection)
+    // the code below does the same thing as the function above (by using dependency injection)
     // public function show(Student $student) {
     //   return view('students.show', compact('student'));
     // }
@@ -81,8 +87,13 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
-    {
+    public function update(Request $request, Student $student) {
+      $request->validate([
+        'first_name' => 'required',
+        'last_name' => 'required',
+        'student_id_nr' => 'required',
+        'email' => 'email'
+      ]);
       $edited = $request->all();
       $student->update($edited);
       return redirect()->route('students.show', ['student' => $student]);
@@ -105,8 +116,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
-    {
+    public function destroy(Student $student) {
       $student->delete();
       return redirect()->route('students.index');
     }

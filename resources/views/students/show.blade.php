@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mt-3">
   <div class="d-flex justify-content-between align-items-center">
-    <h1>You are <span class="text-info">viewing</span> student {{$currentStudent->student_id_nr}} 's info</h1>
+    <h1>Student: {{$student->student_id_nr}}</h1>
     <a class="btn btn-secondary" href="{{route('students.index')}}">Back to list</a>
   </div>
   <table class="table table-striped">
@@ -19,12 +19,14 @@
     </thead>
     <tbody>
           <tr>
-            <th>{{$currentStudent->student_id_nr}}</th>
-            <th>{{$currentStudent->first_name}}</th>
-            <th>{{$currentStudent->last_name}}</th>
-            <th>{{$currentStudent->email}}</th>
+            <th>{{$student->student_id_nr}}</th>
+            <th>{{$student->first_name}}</th>
+            <th>{{$student->last_name}}</th>
+            <th>{{$student->email}}</th>
           </tr>
     </tbody>
   </table>
+  <a class="btn btn-warning" href="{{route('students.edit', ['student' => $student->id])}}">Edit</a>
+  <a class="btn btn-danger" href="{{route('students.deletepreview', ['student' => $student->id])}}">Delete</a>
 </div>
 @endsection
